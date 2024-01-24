@@ -1,7 +1,7 @@
 public class Policy
 {
    //attributes
-   private String policyNum;
+   private int policyNum;
    private String providerName;
    private String userFirst;
    private String userLast;
@@ -16,9 +16,9 @@ public class Policy
    
    
    //constructors
-   public double PolicySetup()
+   public Policy()
    {
-      policyNum = "";
+      policyNum = 0;
       providerName = "";
       userFirst = "";
       userLast = "";
@@ -26,11 +26,9 @@ public class Policy
       smokingStatus = "";
       userHeight = 0;
       userWeight = 0;
-      
-      return 0;
    }
    
-   public double PolicySetup(String polNum, String proName, String useFirst, String useLast,int aNum, String sStat, double height, double weight)
+   public Policy(int polNum, String proName, String useFirst, String useLast,int aNum, String sStat, double height, double weight)
    {
       policyNum = polNum;
       providerName = proName;
@@ -40,8 +38,6 @@ public class Policy
       smokingStatus = sStat;
       userHeight = height;
       userWeight = weight;
-      
-      return 0;
    }
    
    
@@ -49,7 +45,7 @@ public class Policy
    
    
    //setters
-   public void setPolicyNumber(String polNum)
+   public void setPolicyNumber(int polNum)
    {
       policyNum = polNum;
    }
@@ -95,7 +91,7 @@ public class Policy
    
    
    //getters
-   public String getPolicyNumber()
+   public int getPolicyNumber()
    {
       return policyNum;
    }
