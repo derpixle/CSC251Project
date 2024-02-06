@@ -23,23 +23,23 @@ public class Project_Matthew_Viegelmann
       System.out.print("Please enter the Provider Name: ");
       providerName = keyboard.nextLine();
       
-      System.out.print("Please enter the Policyholder’s First Name: ");
+      System.out.print("Please enter the Policyholder's First Name: ");
       userFirst = keyboard.nextLine();
       
-      System.out.print("Please enter the Policyholder’s Last Name: ");
+      System.out.print("Please enter the Policyholder's Last Name: ");
       userLast = keyboard.nextLine();
       
-      System.out.print("Please enter the Policyholder’s Age: ");
+      System.out.print("Please enter the Policyholder's Age: ");
       userAge = keyboard.nextInt();
       keyboard.nextLine();
       
-      System.out.print("Please enter the Policyholder’s Smoking Status (smoker/non-smoker): ");
+      System.out.print("Please enter the Policyholder's Smoking Status (smoker/non-smoker): ");
       smokingStatus = keyboard.nextLine();
       
-      System.out.print("Please enter the Policyholder’s Height (in inches): ");
+      System.out.print("Please enter the Policyholder's Height (in inches): ");
       userHeight = keyboard.nextDouble();
       
-      System.out.print("Please enter the Policyholder’s Weight (in pounds): ");
+      System.out.print("Please enter the Policyholder's Weight (in pounds): ");
       userWeight = keyboard.nextDouble();
       
       //setup policy
