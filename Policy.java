@@ -1,22 +1,5 @@
-import java.io.*;
-
 public class Policy
 {
-   public static void main(String[] args) throws IOException
-   {
-      //open file
-      PrintWriter outputFile = new PrintWriter("PolicyInformation.txt");
-      
-      //write to file
-      outputFile.println("Hello");
-      outputFile.println("World");
-      
-      //close file
-      outputFile.close();
-   }
-   
-   
-   
    //attributes
    private int policyNum;
    private String providerName;
