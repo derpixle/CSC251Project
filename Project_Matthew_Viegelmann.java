@@ -1,9 +1,30 @@
+import java.io.*;
 import java.util.Scanner;
 
 public class Project_Matthew_Viegelmann 
 {   
-   public static void main(String[] args)
+   public static void main(String[] args) throws IOException
    {
+      //declare file
+      File file = new File("PolicyInformation.txt");
+      Scanner inputFile = new Scanner(file);
+      
+      if(!file.exists()) //checks for file
+      {
+         System.out.println("File not found!");
+         System.exit(0); //ends program if not found
+      }
+      
+      //read from file
+      while(inputFile.hasNext())
+      {
+         System.out.println(inputFile.nextLine());
+      }
+      
+      inputFile.close();
+      
+      
+      
       //variables
       int policyNum;
       String providerName;
