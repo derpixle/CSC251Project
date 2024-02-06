@@ -93,7 +93,7 @@ public class Project_Matthew_Viegelmann
       inputFile.close();
       
       
-      /** Manual input Code Bloc
+      /** Manual input Code Block
       Scanner keyboard = new Scanner(System.in);
    
       //get info 
