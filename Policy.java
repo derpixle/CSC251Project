@@ -15,6 +15,24 @@ public class Policy
    
    
    
+   
+   /**
+   * toString method
+   * @return a String representation of a Policy
+   */
+   public String toStringPolicy()
+   {
+      return   "Policy Number: " + policyNum + "\n" +
+               "Provider Name: " + providerName + "\n" +
+               "Policy Price: $%.2f\n", getPrice();
+   }
+   
+   
+   
+   ////////////////////////////////////////////////////////////////////////////////
+
+   
+   
    //constructors
    /**
    *  This constructor is used to create a blank Policy object
