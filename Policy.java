@@ -24,7 +24,7 @@ public class Policy
    {
       return   "Policy Number: " + policyNum + "\n" +
                "Provider Name: " + providerName + "\n" +
-               "Policy Price: $%.2f\n", getPrice();
+               "Policy Price: $%.2f\n" + getPrice();
    }
    
    

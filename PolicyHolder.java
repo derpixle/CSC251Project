@@ -24,7 +24,7 @@ public class PolicyHolder{
                "Policyholder's Smoking Status: " + smokingStatus + "\n" +
                "Policyholder's Height: " + userHeight + " inches" + "\n" +
                "Policyholder's Weight: " + userWeight + " lbs" + "\n" +
-               "Policyholder's BMI: %.2f\n", getBMI();
+               "Policyholder's BMI: %.2f\n" + getBMI();
    }
    
    
