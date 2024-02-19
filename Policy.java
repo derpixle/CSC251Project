@@ -20,7 +20,7 @@ public class Policy
    * toString method
    * @return a String representation of a Policy
    */
-   public String toStringPolicy()
+   public String toString()
    {
       return   "Policy Number: " + policyNum + "\n" +
                "Provider Name: " + providerName + "\n" +

@@ -16,7 +16,7 @@ public class PolicyHolder{
    * toString method
    * @return a String representation of a PolicyHolder
    */
-   public String toStringHolder()
+   public String toString()
    {
       return   "Policyholder's First Name: " + userFirst + "\n" +
                "Policyholder's Last Name: " + userLast + "\n" +
