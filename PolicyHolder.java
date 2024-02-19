@@ -13,6 +13,29 @@ public class PolicyHolder{
    
    
    /**
+   * toString method
+   * @return a String representation of a PolicyHolder
+   */
+   public String toStringHolder()
+   {
+      return   "Policyholder's First Name: " + userFirst + "\n" +
+               "Policyholder's Last Name: " + userLast + "\n" +
+               "Policyholder's Age: " + userAge + "\n" +
+               "Policyholder's Smoking Status: " + smokingStatus + "\n" +
+               "Policyholder's Height: " + userHeight + " inches" + "\n" +
+               "Policyholder's Weight: " + userWeight + " lbs" + "\n" +
+               "Policyholder's BMI: %.2f\n", getBMI();
+   }
+   
+   
+   
+   
+   
+   ////////////////////////////////////////////////////////////////////////////////
+   
+   
+   
+   /**
    *  This setter is used to set the User's First Name
    *  @param useFirst   This is the user's first name
    */
