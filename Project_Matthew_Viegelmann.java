@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Project_Matthew_Viegelmann 
 {   
+   private static int numPolicies;
+   
    public static void main(String[] args) throws IOException
    {
       //declare file
@@ -28,6 +30,8 @@ public class Project_Matthew_Viegelmann
       double userWeight;
       int numSmokers = 0;
       int numNonSmokers = 0;
+      
+      
       
       //array
       ArrayList<Policy> policies = new ArrayList<Policy>();
@@ -71,6 +75,11 @@ public class Project_Matthew_Viegelmann
       //Policy Array Loop
       for (int i = 0; i < policies.size(); i++){
          //display info
+         /**
+         System.out.printf(policies.get(i).toStringPolicy());
+         System.out.printf(policies.get(i).toStringHolder());
+         */
+         
          System.out.println("Policy Number: " + policies.get(i).getPolicyNumber());
          System.out.println("Provider Name: " + policies.get(i).getProviderName());
          System.out.println("Policyholder's First Name: " + policies.get(i).getFirstName());
@@ -91,39 +100,5 @@ public class Project_Matthew_Viegelmann
       
       
       inputFile.close();
-      
-      
-      /** Manual input Code Block
-      Scanner keyboard = new Scanner(System.in);
-   
-      //get info 
-      System.out.print("Please enter the Policy Number: ");
-      policyNum = keyboard.nextInt();
-      keyboard.nextLine();
-            
-      System.out.print("Please enter the Provider Name: ");
-      providerName = keyboard.nextLine();
-      
-      System.out.print("Please enter the Policyholder's First Name: ");
-      userFirst = keyboard.nextLine();
-      
-      System.out.print("Please enter the Policyholder's Last Name: ");
-      userLast = keyboard.nextLine();
-      
-      System.out.print("Please enter the Policyholder's Age: ");
-      userAge = keyboard.nextInt();
-      keyboard.nextLine();
-      
-      System.out.print("Please enter the Policyholder's Smoking Status (smoker/non-smoker): ");
-      smokingStatus = keyboard.nextLine();
-      
-      System.out.print("Please enter the Policyholder's Height (in inches): ");
-      userHeight = keyboard.nextDouble();
-      
-      System.out.print("Please enter the Policyholder's Weight (in pounds): ");
-      userWeight = keyboard.nextDouble();
-      */
-      
-      
    }
 }
