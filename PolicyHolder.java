@@ -18,16 +18,50 @@ public class PolicyHolder{
    */
    public String toString()
    {
-      return   "Policyholder's First Name: " + userFirst + "\n" +
+      return String.format(  "Policyholder's First Name: " + userFirst + "\n" +
                "Policyholder's Last Name: " + userLast + "\n" +
                "Policyholder's Age: " + userAge + "\n" +
                "Policyholder's Smoking Status: " + smokingStatus + "\n" +
                "Policyholder's Height: " + userHeight + " inches" + "\n" +
                "Policyholder's Weight: " + userWeight + " lbs" + "\n" +
-               "Policyholder's BMI: %.2f\n" + getBMI();
+               "Policyholder's BMI: %.2f" + "\n",getBMI());
    }
    
    
+   
+   
+   //constructors
+   /**
+   *  This constructor is used to create a blank PolicyHolder object
+   */
+   public PolicyHolder()
+   {
+      userFirst = "";
+      userLast = "";
+      userAge = 0;
+      smokingStatus = "";
+      userHeight = 0;
+      userWeight = 0;
+   }
+   
+   /**
+   *  This constructor is used to create a PolicyHolder object
+   *  @param useFirst   This is the user's first name
+   *  @param useLast    This is the user's last name
+   *  @param aNum       This is the user's age
+   *  @param sStat      This is the user's smoking status
+   *  @param height     This is the user's height in inches
+   *  @param weight     This is the user's weight in pounds
+   */
+   public PolicyHolder(String useFirst, String useLast,int aNum, String sStat, double height, double weight)
+   {
+      userFirst = useFirst;
+      userLast = useLast;
+      userAge = aNum;
+      smokingStatus = sStat;
+      userHeight = height;
+      userWeight = weight;
+   }
    
    
    

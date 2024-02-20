@@ -1,5 +1,9 @@
 public class Policy
 {
+   //aggregation
+   private PolicyHolder holder;
+   
+   
    //attributes
    private int policyNum;
    private String providerName;
@@ -22,9 +26,10 @@ public class Policy
    */
    public String toString()
    {
-      return   "Policy Number: " + policyNum + "\n" +
+      return String.format(  "Policy Number: " + policyNum + "\n" +
                "Provider Name: " + providerName + "\n" +
-               "Policy Price: $%.2f\n" + getPrice();
+               holder.toString() +
+               "Policy Price: $%.2f" + "\n",getPrice());
    }
    
    
@@ -60,16 +65,11 @@ public class Policy
    *  @param height     This is the user's height in inches
    *  @param weight     This is the user's weight in pounds
    */
-   public Policy(int polNum, String proName, String useFirst, String useLast,int aNum, String sStat, double height, double weight)
+   public Policy(int polNum, String proName, PolicyHolder pHolder)
    {
       policyNum = polNum;
       providerName = proName;
-      userFirst = useFirst;
-      userLast = useLast;
-      userAge = aNum;
-      smokingStatus = sStat;
-      userHeight = height;
-      userWeight = weight;
+      holder = pHolder;
    }
    
    
@@ -143,12 +143,12 @@ public class Policy
       if(userAge > oldAge) //old fee
          price = price + oldFee;
          
-      if(smokingStatus.equalsIgnoreCase("smoker")) //smoker fee
+      if(holder.getSmokingStatus().equalsIgnoreCase("smoker")) //smoker fee
          price = price + smokerFee;
             
       //bmi fee
-      if(getBMI() > bmiMin)
-         price = price + ((getBMI() - bmiMin) * bmiFee);
+      if(holder.getBMI() > bmiMin)
+         price = price + ((holder.getBMI() - bmiMin) * bmiFee);
          
       return price;
    }

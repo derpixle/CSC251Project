@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Project_Matthew_Viegelmann 
 {   
-   private static int numPolicies;
+   private static int numPolicies = 0;
    
    public static void main(String[] args) throws IOException
    {
@@ -57,10 +57,12 @@ public class Project_Matthew_Viegelmann
             inputFile.nextLine();
          }
          
-         
+         //Create Policy Holder
+         PolicyHolder holder = new PolicyHolder(userFirst, userLast, userAge, smokingStatus, userHeight, userWeight);
          
          //Add to Policy Array
-         policies.add(new Policy(policyNum, providerName, userFirst, userLast, userAge, smokingStatus, userHeight, userWeight));
+         policies.add(new Policy(policyNum, providerName, holder));
+         numPolicies = numPolicies + 1;
          
          if (smokingStatus.equals("smoker"))
          {
@@ -75,28 +77,15 @@ public class Project_Matthew_Viegelmann
       //Policy Array Loop
       for (int i = 0; i < policies.size(); i++){
          //display info
-         /**
-         System.out.printf(policies.get(i).toStringPolicy());
-         System.out.printf(policies.get(i).toStringHolder());
-         */
-         
-         System.out.println("Policy Number: " + policies.get(i).getPolicyNumber());
-         System.out.println("Provider Name: " + policies.get(i).getProviderName());
-         System.out.println("Policyholder's First Name: " + policies.get(i).getFirstName());
-         System.out.println("Policyholder's Last Name: " + policies.get(i).getLastName());
-         System.out.println("Policyholder's Age: " + policies.get(i).getAge());
-         System.out.println("Policyholder's Smoking Status: " + policies.get(i).getSmokingStatus());
-         System.out.println("Policyholder's Height: " + policies.get(i).getHeight() + " inches");
-         System.out.println("Policyholder's Weight: " + policies.get(i).getWeight() + " lbs");
-         System.out.printf("Policyholder's BMI: %.2f\n", policies.get(i).getBMI());
-         System.out.printf("Policy Price: $%.2f\n", policies.get(i).getPrice());
-         
+         System.out.print(policies.get(i));
          System.out.println();
       }
       
-      //display smoker counts
+      //display policy/smoker counts
+      System.out.printf("There were %s%s\n",numPolicies," Policy objects created.");
       System.out.printf("The number of policies with a smoker is: %s\n",numSmokers);
       System.out.printf("The number of policies with a non-smoker is: %s\n",numNonSmokers);
+      
       
       
       inputFile.close();
