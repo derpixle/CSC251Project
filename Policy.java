@@ -1,5 +1,9 @@
 public class Policy
 {
+   //aggregation
+   private PolicyHolder holder;
+   
+   
    //attributes
    private int policyNum;
    private String providerName;
@@ -13,6 +17,25 @@ public class Policy
    
    
    
+   
+   
+   
+   /**
+   * toString method
+   * @return a String representation of a Policy
+   */
+   public String toString()
+   {
+      return String.format(  "Policy Number: " + policyNum + "\n" +
+               "Provider Name: " + providerName + "\n" +
+               holder.toString() +
+               "Policy Price: $%.2f" + "\n",getPrice());
+   }
+   
+   
+   
+   ////////////////////////////////////////////////////////////////////////////////
+
    
    
    //constructors
@@ -42,16 +65,11 @@ public class Policy
    *  @param height     This is the user's height in inches
    *  @param weight     This is the user's weight in pounds
    */
-   public Policy(int polNum, String proName, String useFirst, String useLast,int aNum, String sStat, double height, double weight)
+   public Policy(int polNum, String proName, PolicyHolder pHolder)
    {
       policyNum = polNum;
       providerName = proName;
-      userFirst = useFirst;
-      userLast = useLast;
-      userAge = aNum;
-      smokingStatus = sStat;
-      userHeight = height;
-      userWeight = weight;
+      holder = pHolder;
    }
    
    
@@ -77,63 +95,8 @@ public class Policy
       providerName = proName;
    }
    
-   /**
-   *  This setter is used to set the User's First Name
-   *  @param useFirst   This is the user's first name
-   */
-   public void setFirstName(String useFirst)
-   {
-      userFirst = useFirst;
-   }
    
-   /**
-   *  This setter is used to set the User's Last Name
-   *  @param useLast    This is the user's last name
-   */
-   public void setLastName(String useLast)
-   {
-      userLast = useLast;
-   }
-   
-   /**
-   *  This setter is used to set the User's Age
-   *  @param aNum       This is the user's age
-   */
-   public void setAge(int aNum)
-   {
-      userAge = aNum;
-   }
-   
-   /**
-   *  This setter is used to set the User's Smoking Status
-   *  @param sStat      This is the user's smoking status
-   */
-   public void setSmokingStatus(String sStat)
-   {
-      smokingStatus = sStat;
-   }
-   
-   /**
-   *  This setter is used to set the User's Height
-   *  @param height     This is the user's height in inches
-   */
-   public void setHeight(double height)
-   {
-      userHeight = height;
-   }
-   
-   /**
-   *  This setter is used to set the User's Weight
-   *  @param weight     This is the user's weight in pounds
-   */
-   public void setWeight(double weight)
-   {
-      userWeight = weight;
-   }
-
-   
-   
-   
+   ////////////////////////////////////////////////////////////////////////////////
    
    
    //getters
@@ -153,74 +116,14 @@ public class Policy
       return providerName;
    }
    
-   /**
-   *  This getter is used to get the User's First Name
-   */
-   public String getFirstName()
-   {
-      return userFirst;
-   }
-   
-   /**
-   *  This getter is used to get the User's Last Name
-   */
-   public String getLastName()
-   {
-      return userLast;
-   }
-   
-   /**
-   *  This getter is used to get the User's Age
-   */
-   public int getAge()
-   {
-      return userAge;
-   }
-   
-   /**
-   *  This getter is used to get the User's Smoking Status
-   */
-   public String getSmokingStatus()
-   {
-      return smokingStatus;
-   }
-   
-   /**
-   *  This getter is used to get the User's Height
-   */
-   public double getHeight()
-   {
-      return userHeight;
-   }
-   
-   /**
-   *  This getter is used to get the User's Weight
-   */
-   public double getWeight()
-   {
-      return userWeight;
-   }
-   
-   
-   
-   
-   
-   
-   
-   //calculate BMI
-   /**
-   *  This method is used to calculate the User's BMI
-   *  @param userWeight This is the stored weight in pounds
-   *  @param userHeight This is the stored height in inches
-   *  @return double BMI calculation
-   */
-   public double getBMI()
-   {
-      final double factor = 703;
       
-      return (userWeight * factor)/(userHeight * userHeight);
-   }
    
+   ////////////////////////////////////////////////////////////////////////////////
+   
+   
+   
+   
+      
    //calculate price
    /**
    *  This method is used to calculate the Policy's Price using the User's Calculated BMI
@@ -240,12 +143,12 @@ public class Policy
       if(userAge > oldAge) //old fee
          price = price + oldFee;
          
-      if(smokingStatus.equalsIgnoreCase("smoker")) //smoker fee
+      if(holder.getSmokingStatus().equalsIgnoreCase("smoker")) //smoker fee
          price = price + smokerFee;
             
       //bmi fee
-      if(getBMI() > bmiMin)
-         price = price + ((getBMI() - bmiMin) * bmiFee);
+      if(holder.getBMI() > bmiMin)
+         price = price + ((holder.getBMI() - bmiMin) * bmiFee);
          
       return price;
    }
