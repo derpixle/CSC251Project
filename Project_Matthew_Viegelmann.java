@@ -81,7 +81,7 @@ public class Project_Matthew_Viegelmann
          System.out.println();
       }
       
-      //display policy/smoker counts
+      //display policy and smoker counts
       System.out.printf("There were %s%s\n",numPolicies," Policy objects created.");
       System.out.printf("The number of policies with a smoker is: %s\n",numSmokers);
       System.out.printf("The number of policies with a non-smoker is: %s\n",numNonSmokers);
