@@ -1,7 +1,5 @@
 public class PolicyHolder{
    //attributes
-   private int policyNum;
-   private String providerName;
    private String userFirst;
    private String userLast;
    private int userAge;
@@ -63,6 +61,16 @@ public class PolicyHolder{
       userWeight = weight;
    }
    
+   //security
+   public PolicyHolder(PolicyHolder holder)
+   {
+      userFirst = holder.getFirstName();
+      userLast = holder.getLastName();
+      userAge = holder.getAge();
+      smokingStatus = holder.getSmokingStatus();
+      userHeight = holder.getHeight();
+      userWeight = holder.getWeight();
+   }
    
    
    ////////////////////////////////////////////////////////////////////////////////

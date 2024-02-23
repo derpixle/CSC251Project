@@ -7,12 +7,6 @@ public class Policy
    //attributes
    private int policyNum;
    private String providerName;
-   private String userFirst;
-   private String userLast;
-   private int userAge;
-   private String smokingStatus;
-   private double userHeight;
-   private double userWeight;
    
    
    
@@ -46,12 +40,7 @@ public class Policy
    {
       policyNum = 0;
       providerName = "";
-      userFirst = "";
-      userLast = "";
-      userAge = 0;
-      smokingStatus = "";
-      userHeight = 0;
-      userWeight = 0;
+      holder = new PolicyHolder();
    }
    
    /**
@@ -69,7 +58,8 @@ public class Policy
    {
       policyNum = polNum;
       providerName = proName;
-      holder = pHolder;
+      //security
+      holder = new PolicyHolder(pHolder);
    }
    
    
@@ -96,6 +86,13 @@ public class Policy
    }
    
    
+   //security
+   public void setHolder(PolicyHolder holder)
+   {
+      holder = new PolicyHolder(holder);
+   }
+   
+   
    ////////////////////////////////////////////////////////////////////////////////
    
    
@@ -116,6 +113,12 @@ public class Policy
       return providerName;
    }
    
+   
+   //security
+   public PolicyHolder getHolder()
+   {
+      return new PolicyHolder(holder);
+   }
       
    
    ////////////////////////////////////////////////////////////////////////////////
@@ -140,7 +143,7 @@ public class Policy
       final int oldAge = 50;
       final int bmiMin = 35;
       
-      if(userAge > oldAge) //old fee
+      if(holder.getAge() > oldAge) //old fee
          price = price + oldFee;
          
       if(holder.getSmokingStatus().equalsIgnoreCase("smoker")) //smoker fee
